@@ -1,6 +1,6 @@
 """
 python中的变量不需要声明，每个变量在使用前都必须赋值，变量赋值以后该变量才会被创建
-在python中，变量就是变量，他没有类型，我们所说的"类型"是变量所指所指的内存中对象的类型
+在python中，变量就是变量，他没有类型，我们所说的"类型"是变量所指的内存中对象的类型
 python3中有六个数据类型：
 - numbers（数字）
 - string（字符串）
@@ -72,9 +72,60 @@ print(sz_03[1:3])
 Tuple（元组）
 - 元组与列表类似，不同之处在于元组的元素不能修改，元组写在小括号里面，元素之间用逗号隔开
 - 元组可以进行索引和切片
-- 
+- 元组支持+操作符
+注意：
+- 与字符串一样，元组的元素不能修改
+- 元组也可以被索引和切片，方法一样
+- 注意构造包含0和1个元素的元组的特殊语法规则
+- 元组也可以使用+操作符
 """
 yz_01 = (1994, 'johnhao',  'man')
 print(yz_01, type(yz_01), len(yz_01))
 yz_02 = (1, 2, 3, 4, 5, 6)
-print()
+print(yz_02[0], yz_02[1:4])
+yz_03 = yz_01 +  yz_02
+print(yz_03)
+
+"""
+Sets（集合）
+- 集合是一个无序不重复元素的集
+- 基本功能是进行成员关系测试和消除重复元素
+- 可以使用打括号或者set()函数创建set集合
+注意：
+- 创建一个空集合必须使用set函数而不是{},因为{}是用来创建一个空字典
+"""
+jh_01 = {'tom', 'jim', 'tom', 'john', 'jack'}
+print(jh_01)
+jh_02 = set('absafsdlkdsfa')
+jh_03 = set('uojodajkpkdfkag')
+print(jh_02, jh_03)
+# 差集
+print(jh_02 - jh_03)
+# 并集
+print(jh_02 | jh_03)
+# 交集
+print(jh_02 & jh_03)
+# 都不存在的元素
+print(jh_02 ^ jh_03)
+
+"""
+Dictionaries（字典）
+- 字典是一种映射类型。他是无序的键:值对集合
+- 关键字必须使用不可变类型，也就是list和包含可变类型的tuple不能做关键字
+- 在同一个字典中，关键字还必须互不相同
+"""
+zd_01 = {}
+zd_02 = {'name': 'johnhao', 'age': 24, 'sex': 'man'}
+print(zd_02)
+print(zd_02['name'])
+zd_02['age'] = 25
+print(zd_02)
+print(list(zd_02.keys()))
+print(list(zd_02.values()))
+print(sorted(zd_02.keys()))
+print('name' in zd_02)
+print('age' not in zd_02)
+zd_03 = dict([('name', 'john'), ('age', 23)])
+print(zd_03)
+zd_04 = dict(name='john', age=24)
+print(zd_04)
